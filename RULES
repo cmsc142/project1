@@ -1,0 +1,62 @@
+There are a few rules for this project:
+
+* You _must_ use `numpy` arrays in your implementation
+  - The numpy arrays should be allocated _once_ on initialization (i.e. you
+    can't just make a new numpy array every time someone adds something to the
+    structure)
+  - The user should not have to know/care that you've used numpy arrays, this
+    should be an _implementation detail_
+  - You cannot use `sort` (or a function that sorts) in the implementation
+    of Ordered Queues
+
+* You need to write tests for each structure. The testing must conform to the
+  following:
+  - You must write a function for each test (which can be named however you'd
+    like)
+  - Your library must provide three functions:
+    + `test_stack()`
+    + `test_fifo()`
+    + `test_ordered()`
+
+    These functions will run all your tests  for each of the data structures
+    (e.g. `test_stack` runs all of your stack tests, etc.) and return `True` if
+    all your tests pass, and `False` if _any_ of your tests fail.
+
+
+Rubric
+======
+
+The points for this project are divided as follows:
+
+* 20% The package is structured appropriately
+* 10% Writing documentation (comments, or a separate file) that explains your implementation
+* 10% Using git in a disciplined manner
+* 10% Writing tests for each structure that addresses the common issues we discussed in class
+* 15% Getting the stack right
+* 15% Getting the queue right
+* 20% Getting the ordered queue right
+
+Extra Credit
+============
+
+You can get extra credit by implementing a `resize` method for any of the three
+data structures. This method must take in an integer that acts as the new bound
+for the structure. In the case that `resize` is called with a number larger
+than the current maximum size, you should create a larger numpy array and
+ensure that no elements are lost:
+
+```
+>>> s = Stack(10)
+>>> s.size()
+0
+>>> s.push(42)
+True
+>>> s.resize(20)
+>>> s.size
+1
+>>> s.pop(42)
+42
+```
+
+You can only get extra credit if you've completed _good faith_ attempts for all
+of the rubric items.
